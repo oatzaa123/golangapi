@@ -3,7 +3,7 @@ package db
 import (
 	"main/model"
 
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -17,11 +17,11 @@ func GetDB() *gorm.DB {
 //SetupDB ...
 func SetupDB() {
 	//SQLite
-	// database, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
+	database, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
 
 	//MySQL
-	dsn := "root:@tcp(127.0.0.1:3306)/golang?charset=utf8mb4&parseTime=true&loc=Local"
-	database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	// dsn := "root:@tcp(127.0.0.1:3306)/golang?charset=utf8mb4&parseTime=true&loc=Local"
+	// database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		panic("failed to connect database")
