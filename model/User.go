@@ -1,0 +1,12 @@
+package model
+
+import "time"
+
+//User ...
+type User struct {
+	ID       uint   `gorm:"primary_key"`
+	Username string `gorm:"unique" form:"username" binding:"required"`
+	Password string `form:"password" binding:"required"`
+	Level    string `gorm:"default:normal"`
+	CreateAt time.Time
+}
