@@ -19,6 +19,6 @@ func main() {
 		router.Run()
 	} else {
 		fmt.Println("Environment Port : " + port)
-		router.Run(":")
+		router.Run(":" + port)
 	}
 }
